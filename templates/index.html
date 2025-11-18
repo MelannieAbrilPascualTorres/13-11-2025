@@ -7,7 +7,6 @@
 <div class="row justify-content-center">
     <div class="col-12 col-md-4">
         <div class="container mt-4">
-
             {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
             {% for category, message in messages %}
@@ -22,10 +21,10 @@
         </div>
         <form method="post" action="/search" class="text-center mt-3">
             <div class="mb-3">
-                <label for="api" class="form-label"> NutriApi</label>
-                <input type="text" required class="form-control" name="api" id="api" placeholder="Ingrese ">
+                <label for="receta" class="form-label"> NutriApi</label>
+                <input type="text" required class="form-control" name="receta" id="receta" placeholder="Ej: pizza, pasta, salad, chicken">
             </div>
-            <button type="submit" class="btn btn-primary">Buscar</button>
+            <button type="submit" class="btn bg-danger-subtle text-danger">Buscar</button>
         </form>
     </div>
 </div>

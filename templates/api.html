@@ -5,22 +5,28 @@
 {% block contenido %}
 
 <div class="row justify-content-center mt-4">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-4">
         <div class="card text-center">
             <div class="card-body">
-                <h5 class="card-title">{{ pokemon.name }} #{{ pokemon.id}}</h5>
-                {% if pokemon.sprite %}
-                <img src="{{ pokemon.sprite }}" class="img-fluid" alt="{{ pokemon.name }}">
+                <h5 class="card-title">{{ recipe.name }}</h5>
+                {% if recipe.image %}
+                <img src="{{ recipe.image }}" class="img-fluid" alt="{{ recipe.name }}">
                 {% endif %}
-                <p><strong>Altura:</strong> {{ pokemon.height }} m</p>
-                <p><strong>Peso:</strong> {{ pokemon.weight }} kg</p>
-                <p><strong>Tipo:</strong>
-                    {% for type in pokemon.types %}
-                    {{ type }}
+                <p><strong>Tiempo:</strong> {{ recipe.ready_in_minutes }} minutos</p>
+                <p><strong>Porciones:</strong> {{ recipe.servings }} </p>
+                {% if recipe.nutrition %}
+                <div class="mt-3 p-3">
+                    <h6>Información Nutricional:</h6>
+                    {% for nutrient in recipe.nutrition.nutrients %}
+                        {% if nutrient.name in ['Calories', 'Fat', 'Carbohydrates', 'Protein'] %}
+                        <p><strong>{{ nutrient.name }}:</strong> {{ nutrient.amount}} 
+                            {{ nutrient.unit}}</p>
+                        {% endif %}
                     {% endfor %}
-                </p>
+                </div>
+                {% endif %}
 
-                <a href="{{ url_for('index') }}" class="btn btn-primary">Buscar otro</a>
+                <a href="{{ url_for('index') }}" class="btn bg-danger-subtle text-danger">Buscar otra receta</a>
             </div>
         </div>
     </div>
