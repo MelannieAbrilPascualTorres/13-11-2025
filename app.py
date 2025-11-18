@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 import requests
 
-apiKey ="1320e414b5414686ac59e14362f5a2d3"
+apiKey ="f544c737fc744d32b0f11b70a940647d"
 api_url = "https://api.spoonacular.com/recipes/"
 
 app = Flask(__name__)
